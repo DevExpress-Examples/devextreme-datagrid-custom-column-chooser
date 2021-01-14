@@ -2,10 +2,10 @@
 
 Take a look at the following files of this example to see the required code: 
 
-- app.component.html
-- app.component.ts
-- column.chooser.component.html
-- column.chooser.component.ts
+- [app.component.html](https://github.com/DevExpress-Examples/TreeList-DataGrid---Custom-column-chooser/blob/69652f9588a8ee3f7496c17117c42016e391aeb3/Angular/src/app/app.component.html)
+- [app.component.ts](https://github.com/DevExpress-Examples/TreeList-DataGrid---Custom-column-chooser/blob/69652f9588a8ee3f7496c17117c42016e391aeb3/Angular/src/app/app.component.ts)
+- [column.chooser.component.html](https://github.com/DevExpress-Examples/TreeList-DataGrid---Custom-column-chooser/blob/69652f9588a8ee3f7496c17117c42016e391aeb3/Angular/src/app/column.chooser/column.chooser.component.html)
+- [column.chooser.component.ts](https://github.com/DevExpress-Examples/TreeList-DataGrid---Custom-column-chooser/blob/69652f9588a8ee3f7496c17117c42016e391aeb3/Angular/src/app/column.chooser/column.chooser.component.ts)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
