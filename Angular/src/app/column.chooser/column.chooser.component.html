@@ -1,0 +1,18 @@
+<dx-popup #columnChooser title="Column Chooser" [(visible)]="visible" [container]="container" [width]="250"
+    [height]="350" [resizeEnabled]="true" [shading]="false">
+
+    <dxi-toolbar-item widget="dxButton" location="after" toolbar="bottom" [options]="applyOptions">
+    </dxi-toolbar-item>
+
+    <dxi-toolbar-item widget="dxButton" location="after" toolbar="bottom" [options]="cancelOptions">
+    </dxi-toolbar-item>
+
+    <dxo-position at="right bottom" my="right bottom" [of]="container"></dxo-position>
+
+    <div *dxTemplate="let data of 'content'">
+        <dx-list [(dataSource)]="listDataSource" displayExpr="caption" searchExpr="caption" keyExpr="dataField"
+            [(selectedItemKeys)]="selectedItems" [searchEnabled]="true" [showSelectionControls]="true"
+            selectionMode="all">
+        </dx-list>
+    </div>
+</dx-popup>
