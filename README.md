@@ -1,3 +1,8 @@
+<!-- default badges list -->
+![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/310565095/20.2.3%2B)
+[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T947741)
+[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+<!-- default badges end -->
 # TreeList/DataGrid - How to implement a custom column chooser using a Popup with List
 
 TreeList/DataGrid has a built-in column chooser which allows users to alter column visibility at runtime. However, it has limited options that can be used to configure it. In cases where further configuration is required, it is better to implement a custom column chooser than to use private API to modify the built-in one.
