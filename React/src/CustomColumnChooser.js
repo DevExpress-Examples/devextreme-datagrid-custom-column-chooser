@@ -90,7 +90,8 @@ export default function CustomColumnChooser(props) {
 
       <List
         ref={listRef}
-        items={columnsList}
+        dataSource={columnsList}
+        searchEnabled={true}
         selectionMode="all"
         showSelectionControls={true}
         selectedItems={selectedItems}
