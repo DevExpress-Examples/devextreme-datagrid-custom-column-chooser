@@ -1,0 +1,166 @@
+@using TreeList_DataGrid___Custom_Column_Chooser.Models
+
+<h2>Home</h2>
+
+@(Html.DevExtreme().DataGrid<SampleOrder>()
+    .ID("grid")
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
+    .Columns(columns => {
+        columns.AddFor(m => m.OrderID);
+        columns.AddFor(m => m.OrderDate);
+        columns.AddFor(m => m.CustomerName);
+        columns.AddFor(m => m.ShipCountry);
+        columns.AddFor(m => m.ShipCity);
+    })
+    .OnToolbarPreparing("onToolbarPreparing")
+)
+@(Html.DevExtreme().Popup()
+    .ID("columnChooserPopup")
+    .Container("#grid")
+    .Title("Column Chooser")
+    .Width(250)
+    .Height(350)
+    .ResizeEnabled(false)
+    .Shading(false)
+    .ShowCloseButton(false)
+    .DragEnabled(false)
+    .CloseOnOutsideClick(false)
+    .Visible(false)
+    .OnShowing("onShown")
+    .Position(p => p
+        .At(HorizontalAlignment.Right, VerticalAlignment.Bottom)
+        .My(HorizontalAlignment.Right, VerticalAlignment.Top)
+        .Of("#myColumnChooser")
+    )
+    .Content(@<text>
+        @(Html.DevExtreme().List()
+            .ID("columnChooserList")
+            .DataSource(new JS("getListDataSource()"))
+            .DisplayExpr("caption")
+            .SearchExpr("caption")
+            .SelectionMode(ListSelectionMode.All)
+            .ShowSelectionControls(true)
+            .SelectedItems("")
+            .SearchEnabled(true)
+        )
+    </text>)
+    .ToolbarItems(toolbarItems => {
+        toolbarItems.Add()
+            .Toolbar(Toolbar.Bottom)
+            .Location(ToolbarItemLocation.After)
+            .Widget(w => w.Button()
+                .Text("Apply")
+                .OnClick("onApply")
+            );
+
+        toolbarItems.Add()
+            .Toolbar(Toolbar.Bottom)
+            .Location(ToolbarItemLocation.After)
+            .Widget(w => w.Button()
+                .Text("Cancel")
+                .OnClick("onCancel")
+            );
+    })
+)
+
+<script>
+    const DIGIT_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    function captionize(name) {
+        const captionList = [];
+        let i;
+        let char;
+        let isPrevCharNewWord = false;
+        let isNewWord = false;
+
+        for (i = 0; i < name.length; i++) {
+            char = name.charAt(i);
+            isNewWord = (char === char.toUpperCase() && char !== '-' && char !== ')' && char !== '/') || (char in DIGIT_CHARS);
+            if (char === '_' || char === '.') {
+                char = ' ';
+                isNewWord = true;
+            } else if (i === 0) {
+                char = char.toUpperCase();
+                isNewWord = true;
+            } else if (!isPrevCharNewWord && isNewWord) {
+                if (captionList.length > 0) {
+                    captionList.push(' ');
+                }
+            }
+            captionList.push(char);
+            isPrevCharNewWord = isNewWord;
+        }
+        return captionList.join('');
+    };
+
+    function onToolbarPreparing(e) {
+        e.toolbarOptions.items.push({
+            widget: "dxButton",
+            location: "after",
+            options: {
+                icon: "columnchooser",
+                elementAttr: {
+                    id: "myColumnChooser"
+                },
+                onClick: function () {
+                    var popup = $("#columnChooserPopup").dxPopup("instance");
+                    popup.show();
+                }
+            }
+        });
+    }
+
+    function getListDataSource() {
+        var grid = $('#grid').dxDataGrid('instance');
+        var columns = grid.option('columns').map(function (column) {
+            return {
+                dataField: column.dataField,
+                caption: captionize(column.dataField)
+            };
+        });
+
+        return columns;
+    }
+
+    function onShown() {
+        var list = $("#columnChooserList").dxList("instance");
+        var grid = $('#grid').dxDataGrid('instance');
+
+        var visibleColumns = grid.getVisibleColumns().map(function (column) {
+            return column.dataField;
+        });
+
+        var columns = list.option("dataSource").reduce(function (result, column) {
+            if (visibleColumns.includes(column.dataField)) {
+                result.push(column);
+            }
+
+            return result;
+        }, []);
+
+        list.option("selectedItems", columns);
+    }
+
+    function onApply() {
+        var list = $("#columnChooserList").dxList("instance");
+        var grid = $('#grid').dxDataGrid('instance');
+        var popup = $("#columnChooserPopup").dxPopup("instance");
+
+        var columns = list.option("dataSource");
+        var selectedItems = list.option("selectedItems");
+
+        grid.beginUpdate();
+        columns.forEach(function (column) {
+            grid.columnOption(column.dataField, "visible", selectedItems.includes(column));
+        });
+        grid.endUpdate();
+
+        popup.hide();
+    }
+
+    function onCancel() {
+        var popup = $("#columnChooserPopup").dxPopup("instance");
+        popup.hide();
+    }
+</script>
