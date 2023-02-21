@@ -9,9 +9,9 @@ This example demonstrates how to implement a custom column chooser for a DataGri
 
 ![Custom column chooser](/column-chooser.png)
 
-DataGrid and TreeList include a built-in column chooser that allows users to alter column visibility at runtime. If you need more flexible solution, implement a custom column chooser. Use the [Popup](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPopup/) and [List](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxList/) components for this purpose.
+The DataGrid and TreeList include a built-in column chooser that allows users to alter column visibility at runtime. If you need a more flexible solution, you can use the [Popup](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxPopup/) and [List](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxList/) components to implement a custom column chooser.
 
-In this example, the custom column chooser includes a *Select All* check box that can be used to select/deselect all columns at once. All alterations in column visibility are applied on button click.
+In this example, the custom column chooser includes a *Select All* checkbox that can be used to select/deselect all columns at once. All alterations in column visibility are applied when you click the button.
 
 ## Files to Review
 
