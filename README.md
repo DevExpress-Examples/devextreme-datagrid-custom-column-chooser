@@ -36,7 +36,7 @@ In this example, the custom column chooser includes a *Select All* checkbox that
 
 ## More Examples
 
-- [DataGrid - How to implement a custom editing form using Form and Popup](https://github.com/DevExpress-Examples/DataGrid-How-to-implement-a-custom-editing-form-using-dxForm-and-dxPopup)
+- [DataGrid - How to implement a custom editing form using Form and Popup](https://github.com/DevExpress-Examples/devextreme-datagrid-custom-editing-form)
 - [DataGrid - Column Customization](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ColumnCustomization)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
