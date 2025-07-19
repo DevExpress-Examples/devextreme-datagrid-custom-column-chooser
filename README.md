@@ -25,8 +25,8 @@ In this example, the custom column chooser includes a *Select All* checkbox that
     - [App.vue](Vue/src/App.vue)
 - **React**
     - [App.js](React/src/App.js)
-- **ASP.NET**    
-    - [Index.cshtml](ASP.NET/Views/Home/Index.cshtml)
+- **ASP.NET Core**    
+    - [Index.cshtml](ASP.NET%20Core/Views/Home/Index.cshtml)
 
 ## Documentation
 
