@@ -1,0 +1,10 @@
+<dx-data-grid id="gridContainer" [dataSource]="customers" [showBorders]="true"
+    (onOptionChanged)="onOptionChanged($event)" (onToolbarPreparing)="onToolbarPreparing($event)">
+    <dxi-column *ngFor="let col of columns" [visibleIndex]="col.index" [dataField]="col.dataField"
+        [(visible)]="col.visible">
+    </dxi-column>
+</dx-data-grid>
+
+
+<app-column-chooser [(visible)]="isColumnChooserVisible" [container]="'#gridContainer'" [columns]="columns">
+</app-column-chooser>
