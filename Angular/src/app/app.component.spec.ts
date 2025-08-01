@@ -1,15 +1,21 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { DxPopupModule } from 'devextreme-angular/ui/popup';
+import { DxListModule } from 'devextreme-angular/ui/list';
+import { ColumnChooserComponent } from './column.chooser/column.chooser.component';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        DxDataGridModule,
+        DxPopupModule,
+        DxListModule,
       ],
       declarations: [
         AppComponent,
+        ColumnChooserComponent,
       ],
     }).compileComponents();
   });
@@ -18,12 +24,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it('should have as title \'angular-test\'', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-test');
   });
 
   it('should render title', () => {

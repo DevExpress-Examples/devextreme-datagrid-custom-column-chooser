@@ -1,20 +1,38 @@
-import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import { Component, ViewChild } from '@angular/core';
+import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
+import { Customer, Column, Service } from './app.service';
+import { ColumnChooserComponent } from './column.chooser/column.chooser.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [Service],
 })
 export class AppComponent {
-  title = 'Angular';
+  @ViewChild(ColumnChooserComponent, { static: false }) columnChooser!: ColumnChooserComponent;
 
-  counter = 0;
+  customers: Customer[];
 
-  buttonText = 'Click count: 0';
+  columns: Column[];
 
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  isColumnChooserVisible = false;
+
+  constructor(service: Service) {
+    this.customers = service.getCustomers();
+    this.columns = service.getColumns();
+  }
+
+  onToolbarPreparing(e: DxDataGridTypes.ToolbarPreparingEvent): void {
+    e.toolbarOptions?.items?.push({
+      widget: 'dxButton',
+      options: {
+        icon: 'columnchooser',
+        onClick: (): void => {
+          this.isColumnChooserVisible = true;
+        },
+      },
+      location: 'after',
+    });
   }
 }
