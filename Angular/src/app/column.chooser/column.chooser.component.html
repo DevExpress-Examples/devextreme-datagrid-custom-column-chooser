@@ -5,7 +5,9 @@
   [container]="container"
   [width]="250"
   [height]="350"
-  [resizeEnabled]="true"
+  [resizeEnabled]="false"
+  [dragEnabled]="false"
+  [hideOnOutsideClick]="false"
   [shading]="false"
 >
   <dxi-popup-toolbar-item
@@ -26,8 +28,8 @@
 
   <dxo-position
     at="right bottom"
-    my="right bottom"
-    [of]="container"
+    my="right top"
+    [of]="positionOf"
   ></dxo-position>
 
   <div *dxTemplate="let data of 'content'">

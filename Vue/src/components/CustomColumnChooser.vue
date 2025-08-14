@@ -9,7 +9,7 @@
       :shading="false"
       :show-close-button="false"
       :drag-enabled="false"
-      :close-on-outside-click="false"
+      :hide-on-outside-click="false"
       :visible="visible"
       @hiding="onHiding"
     >

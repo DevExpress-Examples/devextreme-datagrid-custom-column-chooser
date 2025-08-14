@@ -27,6 +27,9 @@ export class AppComponent {
     e.toolbarOptions?.items?.push({
       widget: 'dxButton',
       options: {
+        elementAttr: {
+          id: 'myColumnChooser',
+        },
         icon: 'columnchooser',
         onClick: (): void => {
           this.isColumnChooserVisible = true;

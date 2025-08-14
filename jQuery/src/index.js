@@ -9,6 +9,9 @@ $(() => {
       e.toolbarOptions.items.push({
         widget: 'dxButton',
         options: {
+          elementAttr: {
+            id: 'myColumnChooser',
+          },
           icon: 'columnchooser',
           onClick() {
             customColumnChooser.show();
@@ -44,11 +47,14 @@ function createColumnChooser(grid) {
     contentTemplate() { return list.element(); },
     width: 250,
     height: 350,
-    resizeEnabled: true,
+    hideOnOutsideClick: true,
+    dragEnabled: false,
+    resizeEnabled: false,
     shading: false,
     position: {
       at: 'right bottom',
-      my: 'right bottom',
+      my: 'right top',
+      of: '#gridContainer #myColumnChooser',
     },
     toolbarItems: [{
       widget: 'dxButton',

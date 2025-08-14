@@ -1,7 +1,6 @@
 import {
   AfterViewInit, Component, EventEmitter, Input, Output,
 } from '@angular/core';
-import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { Column } from '../app.service';
 import { captionize } from '../utils';
 
@@ -17,9 +16,13 @@ export class ColumnChooserComponent implements AfterViewInit {
 
   @Input() container = '';
 
+  @Input() button = '';
+
   @Output() visibleChange = new EventEmitter();
 
   listDataSource: Column[] = [];
+
+  positionOf = '';
 
   public selectedItems: string[] = [];
 
@@ -46,6 +49,7 @@ export class ColumnChooserComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.listDataSource = JSON.parse(JSON.stringify(this.columns));
+    this.positionOf = `${this.container} ${this.button}`;
     this.listDataSource.forEach((column) => {
       column.caption = captionize(column.dataField);
       if (column.visible) this.selectedItems.push(column.dataField);
