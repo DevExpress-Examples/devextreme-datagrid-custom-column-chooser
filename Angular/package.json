@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint-html": "prettier --check .",
-    "lint-ts": "eslint --ext .ts .",
+    "lint-ts": "eslint --ext .ts . --fix",
     "lint-css": "stylelint src/**/*.{css,scss} --allow-empty-input",
     "lint": "npm-run-all -p -c lint-ts lint-css lint-html"
   },

@@ -1,0 +1,48 @@
+<dx-popup
+  #columnChooser
+  title="Column Chooser"
+  [(visible)]="visible"
+  [container]="container"
+  [width]="250"
+  [height]="350"
+  [resizeEnabled]="false"
+  [dragEnabled]="false"
+  [hideOnOutsideClick]="false"
+  [shading]="false"
+>
+  <dxi-popup-toolbar-item
+    widget="dxButton"
+    location="after"
+    toolbar="bottom"
+    [options]="applyOptions"
+  >
+  </dxi-popup-toolbar-item>
+
+  <dxi-popup-toolbar-item
+    widget="dxButton"
+    location="after"
+    toolbar="bottom"
+    [options]="cancelOptions"
+  >
+  </dxi-popup-toolbar-item>
+
+  <dxo-position
+    at="right bottom"
+    my="right top"
+    [of]="positionOf"
+  ></dxo-position>
+
+  <div *dxTemplate="let data of 'content'">
+    <dx-list
+      [(dataSource)]="listDataSource"
+      displayExpr="caption"
+      searchExpr="caption"
+      keyExpr="dataField"
+      [(selectedItemKeys)]="selectedItems"
+      [searchEnabled]="true"
+      [showSelectionControls]="true"
+      selectionMode="all"
+    >
+    </dx-list>
+  </div>
+</dx-popup>

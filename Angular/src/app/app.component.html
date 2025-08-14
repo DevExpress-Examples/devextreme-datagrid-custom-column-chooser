@@ -1,3 +1,22 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
-</div>
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="customers"
+  [showBorders]="true"
+  (onToolbarPreparing)="onToolbarPreparing($event)"
+>
+  <dxi-column
+    *ngFor="let col of columns"
+    [visibleIndex]="col.index"
+    [dataField]="col.dataField"
+    [(visible)]="col.visible"
+  >
+  </dxi-column>
+</dx-data-grid>
+
+<app-column-chooser
+  [(visible)]="isColumnChooserVisible"
+  [container]="'#gridContainer'"
+  [button]="'#myColumnChooser'"
+  [columns]="columns"
+>
+</app-column-chooser>
