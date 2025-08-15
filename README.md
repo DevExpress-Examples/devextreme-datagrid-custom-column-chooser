@@ -17,14 +17,17 @@ In this example, the custom column chooser includes a *Select All* checkbox that
 ## Files to Review
 
 - **jQuery**
-    - [index.js](jQuery/index.js)    
+    - [index.js](jQuery/src/index.js)    
 - **Angular**
     - [app.component.html](Angular/src/app/app.component.html)
-    - [app.component.ts](Angular/src/app/app.component.ts)  
+    - [app.component.ts](Angular/src/app/app.component.ts)
+    - [column.chooser.component.html](Angular/src/app/column.chooser/column.chooser.component.html)
+    - [column.chooser.component.ts](Angular/src/app/column.chooser/column.chooser.component.ts)
 - **Vue**
     - [App.vue](Vue/src/App.vue)
 - **React**
-    - [App.js](React/src/App.js)
+    - [App.tsx](React/src/App.tsx)
+    - [CustomColumnChooser.tsx](React/src/components/CustomColumnChooser.tsx)
 - **ASP.NET Core**    
     - [Index.cshtml](ASP.NET%20Core/Views/Home/Index.cshtml)
 
