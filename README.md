@@ -24,7 +24,8 @@ In this example, the custom column chooser includes a *Select All* checkbox that
     - [column.chooser.component.html](Angular/src/app/column.chooser/column.chooser.component.html)
     - [column.chooser.component.ts](Angular/src/app/column.chooser/column.chooser.component.ts)
 - **Vue**
-    - [App.vue](Vue/src/App.vue)
+    - [HomeContent.vue](Vue/src/components/HomeContent.vue)
+    - [CustomColumnChooser.vue](Vue/src/components/CustomColumnChooser.vue)
 - **React**
     - [App.tsx](React/src/App.tsx)
     - [CustomColumnChooser.tsx](React/src/components/CustomColumnChooser.tsx)
