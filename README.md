@@ -39,7 +39,7 @@ In this example, the custom column chooser includes a *Select All* checkbox that
 - [DataGrid - How to implement a custom editing form using Form and Popup](https://github.com/DevExpress-Examples/devextreme-datagrid-custom-editing-form)
 - [DataGrid - Column Customization](https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/ColumnCustomization)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-custom-column-chooser&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-custom-column-chooser&~~~was_helpful=no)
 
