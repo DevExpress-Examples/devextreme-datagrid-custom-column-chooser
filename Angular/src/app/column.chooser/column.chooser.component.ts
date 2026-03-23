@@ -8,6 +8,7 @@ import { captionize } from '../utils';
   selector: 'app-column-chooser',
   templateUrl: './column.chooser.component.html',
   styleUrls: ['./column.chooser.component.scss'],
+  standalone: false,
 })
 export class ColumnChooserComponent implements AfterViewInit {
   @Input() visible = false;

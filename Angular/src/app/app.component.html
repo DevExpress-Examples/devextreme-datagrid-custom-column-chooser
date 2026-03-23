@@ -4,13 +4,13 @@
   [showBorders]="true"
   (onToolbarPreparing)="onToolbarPreparing($event)"
 >
-  <dxi-column
+  <dxi-data-grid-column
     *ngFor="let col of columns"
     [visibleIndex]="col.index"
     [dataField]="col.dataField"
     [(visible)]="col.visible"
   >
-  </dxi-column>
+  </dxi-data-grid-column>
 </dx-data-grid>
 
 <app-column-chooser

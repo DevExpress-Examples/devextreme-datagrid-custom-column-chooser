@@ -63,12 +63,10 @@ const props = withDefaults(defineProps<{
   columns: () => [],
 });
 
-/* eslint-disable */
 const emit = defineEmits<{
   (e: 'hiding'): void;
   (e: 'apply', columns: Column[]): void;
 }>();
-/* eslint-enable */
 
 const listRef = ref<DxList>();
 
