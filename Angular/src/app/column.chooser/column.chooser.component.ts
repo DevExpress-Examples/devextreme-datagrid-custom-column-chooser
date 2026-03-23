@@ -1,5 +1,5 @@
 import {
-  AfterViewInit, Component, EventEmitter, Input, Output,
+  Component, EventEmitter, Input, OnInit, Output,
 } from '@angular/core';
 import { Column } from '../app.service';
 import { captionize } from '../utils';
@@ -10,7 +10,7 @@ import { captionize } from '../utils';
   styleUrls: ['./column.chooser.component.scss'],
   standalone: false,
 })
-export class ColumnChooserComponent implements AfterViewInit {
+export class ColumnChooserComponent implements OnInit {
   @Input() visible = false;
 
   @Input() columns: Column[] = [];
@@ -48,7 +48,7 @@ export class ColumnChooserComponent implements AfterViewInit {
     },
   };
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.listDataSource = JSON.parse(JSON.stringify(this.columns));
     this.positionOf = `${this.container} ${this.button}`;
     this.listDataSource.forEach((column) => {
