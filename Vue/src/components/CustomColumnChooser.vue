@@ -11,7 +11,7 @@
       :drag-enabled="false"
       :hide-on-outside-click="false"
       :visible="visible"
-      @hiding="onHiding"
+      @hiding="handleCancel"
     >
       <DxPosition
         at="right bottom"
