@@ -12,7 +12,6 @@ interface CustomColumnChooserProps {
   visible: boolean;
   columns: Column[];
   onHiding: () => void;
-  /* eslint-disable no-unused-vars */
   onApply: (columns: Column[]) => void;
 }
 
@@ -50,11 +49,11 @@ export default function CustomColumnChooser(props: CustomColumnChooserProps): JS
   const applyButtonOptions = useMemo(() => ({
     text: 'Apply',
     onClick: (): void => {
-      const selectedItems = listRef.current?.instance().option('selectedItems');
+      const currentSelectedItems = listRef.current?.instance().option('selectedItems');
 
       const changes: Column[] = [];
       columns.forEach((column) => {
-        const isSelected = selectedItems?.includes(captionize(column.dataField));
+        const isSelected = currentSelectedItems?.includes(captionize(column.dataField));
         if (column.visible !== isSelected) {
           changes.push({
             ...column,
