@@ -52,10 +52,10 @@ import type { Column } from '../data';
 import { captionize } from '../utils';
 
 const props = withDefaults(defineProps<{
-  visible: boolean;
-  container: string;
-  button: string;
-  columns: Array<Column>;
+  visible?: boolean;
+  container?: string;
+  button?: string;
+  columns?: Array<Column>;
 }>(), {
   visible: false,
   container: '',
