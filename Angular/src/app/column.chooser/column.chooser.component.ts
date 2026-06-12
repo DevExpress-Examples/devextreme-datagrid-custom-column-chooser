@@ -1,5 +1,6 @@
 import {
   Component, EventEmitter, Input, OnInit, Output,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { Column } from '../app.service';
 import { captionize } from '../utils';
@@ -8,6 +9,7 @@ import { captionize } from '../utils';
   selector: 'app-column-chooser',
   templateUrl: './column.chooser.component.html',
   styleUrls: ['./column.chooser.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class ColumnChooserComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DxDataGridTypes } from 'devextreme-angular/ui/data-grid';
 import { Customer, Column, Service } from './app.service';
 import { ColumnChooserComponent } from './column.chooser/column.chooser.component';
@@ -8,6 +8,7 @@ import { ColumnChooserComponent } from './column.chooser/column.chooser.componen
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [Service],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class AppComponent {
